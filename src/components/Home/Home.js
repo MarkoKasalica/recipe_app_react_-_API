@@ -7,6 +7,12 @@ function Home() {
     setQuery(value);
   };
   const handleSearch = () => (window.location.href = "/search/" + query);
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
   return (
     <>
       <div className="home">
@@ -16,8 +22,15 @@ function Home() {
               <h2>Recipes</h2>
               <small>Find the recipes for your favorite meals</small>
             </div>
-            <input type="text" value={query} onChange={handleQuery} />
-            <button onClick={handleSearch}>Search</button>
+            <input
+              type="text"
+              value={query}
+              onChange={handleQuery}
+              onKeyDown={handleKeyDown}
+            />
+            <button onClick={handleSearch} type="submit">
+              Search
+            </button>
           </div>
         </div>
       </div>
