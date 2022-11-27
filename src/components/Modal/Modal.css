@@ -1,0 +1,40 @@
+.modal-container {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4f4f4;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-inner {
+  background-color: #fff;
+  width: 600px;
+  padding: 20px 15px;
+  border-radius: 5px;
+  height: 600px;
+  overflow-y: scroll;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+tr,
+td {
+  padding: 10px;
+  text-align: left;
+}
+th {
+  padding: 10px;
+  background-color: #ffc5c5;
+  border-radius: 5px;
+}
