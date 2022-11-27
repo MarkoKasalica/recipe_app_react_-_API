@@ -12,6 +12,7 @@ function Recipes() {
     const value = e.target.value;
     setSearch(value);
   };
+
   const fetchRecipes = async () => {
     try {
       const { data } = await axiosInstance().get("?q=" + search);
@@ -23,6 +24,11 @@ function Recipes() {
   const searchRecipes = async () => {
     const data = await fetchRecipes();
     setRecipes(data);
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      searchRecipes();
+    }
   };
   useEffect(() => {
     const loadRecipes = async () => {
@@ -40,7 +46,12 @@ function Recipes() {
             <h2>Recipes</h2>
             <small>Find the recipes for your favorite meals</small>
           </div>
-          <input type="text" value={search} onChange={handleInput} />
+          <input
+            type="text"
+            value={search}
+            onChange={handleInput}
+            onKeyDown={handleKeyDown}
+          />
           <button onClick={searchRecipes}>Search</button>
         </div>
         <div className="recipes-results">
